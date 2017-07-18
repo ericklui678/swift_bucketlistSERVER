@@ -15,4 +15,15 @@ class TaskModel {
     let task = session.dataTask(with: url!, completionHandler: completionHandler)
     task.resume()
   }
+  static func addTaskWithObjective(objective: String, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+    if let urlToReq = URL(string: "http://localhost:8000/tasks") {
+      var request = URLRequest(url: urlToReq)
+      request.httpMethod = "POST"
+      let bodyData = "objective=\(objective)"
+      request.httpBody = bodyData.data(using: .utf8)
+      let session = URLSession.shared
+      let task = session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
+      task.resume()
+    }
+  }
 }

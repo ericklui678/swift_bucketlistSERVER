@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bfb-Nx-C6S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X20-bC-mSd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,10 +32,105 @@
                             <outlet property="delegate" destination="bfb-Nx-C6S" id="9Dl-cH-htA"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="qOg-Mi-QSh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iXu-Mx-qWV">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="bfb-Nx-C6S" id="iDx-Wg-yhP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="8Va-uH-r5I" kind="presentation" identifier="NewTaskSegue" id="glj-2H-fp2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubp-Xx-9OK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="162"/>
+            <point key="canvasLocation" x="455.19999999999999" y="161.46926536731635"/>
+        </scene>
+        <!--New Task View Controller-->
+        <scene sceneID="tTX-uu-eFm">
+            <objects>
+                <viewController id="eyh-yV-68M" customClass="NewTaskViewController" customModule="bucketlist_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QxC-bi-HbG"/>
+                        <viewControllerLayoutGuide type="bottom" id="OXf-iM-K0z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fKI-LP-WnV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWd-Xo-7i0">
+                                <rect key="frame" x="16" y="88" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bWd-Xo-7i0" secondAttribute="trailing" id="2SU-M7-odG"/>
+                            <constraint firstItem="bWd-Xo-7i0" firstAttribute="top" secondItem="QxC-bi-HbG" secondAttribute="bottom" constant="24" id="LSY-Pj-69P"/>
+                            <constraint firstItem="bWd-Xo-7i0" firstAttribute="leading" secondItem="fKI-LP-WnV" secondAttribute="leadingMargin" id="c7P-ly-WIG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xJm-aL-bWx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WS4-ss-LBZ">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="eyh-yV-68M" id="ifH-ML-Xig"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="LTu-HE-KGS">
+                            <connections>
+                                <segue destination="xHF-aE-Qol" kind="unwind" unwindAction="unwindToBucketListVCWithSegue:" id="oFJ-Xe-u07"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="taskLabel" destination="bWd-Xo-7i0" id="xYA-bW-w9H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mg4-5b-FrS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xHF-aE-Qol" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1321" y="161"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KQe-Es-pfl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X20-bC-mSd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <size key="freeformSize" width="375" height="40"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R82-lJ-6eK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bfb-Nx-C6S" kind="relationship" relationship="rootViewController" id="wZy-Il-VUY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LhP-ug-PX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="-280"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pmr-U8-DOy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Va-uH-r5I" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <size key="freeformSize" width="375" height="40"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="epS-LL-T4L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eyh-yV-68M" kind="relationship" relationship="rootViewController" id="30q-dQ-NWb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bKE-Lg-n3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1321" y="-281"/>
         </scene>
     </scenes>
 </document>

@@ -15,6 +15,7 @@
 		F420EACD1F1DB76100EC0B88 /* bucketlist_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420EACC1F1DB76100EC0B88 /* bucketlist_clientTests.swift */; };
 		F420EAD81F1DB76100EC0B88 /* bucketlist_clientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420EAD71F1DB76100EC0B88 /* bucketlist_clientUITests.swift */; };
 		F420EAE61F1DB8BE00EC0B88 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420EAE51F1DB8BE00EC0B88 /* TaskModel.swift */; };
+		F44DAF5D1F1DC28E003825FB /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DAF5C1F1DC28E003825FB /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F420EAD71F1DB76100EC0B88 /* bucketlist_clientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bucketlist_clientUITests.swift; sourceTree = "<group>"; };
 		F420EAD91F1DB76100EC0B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F420EAE51F1DB8BE00EC0B88 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		F44DAF5C1F1DC28E003825FB /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		F420EAAB1F1DB76100EC0B88 = {
 			isa = PBXGroup;
 			children = (
+				F44DAF5C1F1DC28E003825FB /* NewTaskViewController.swift */,
 				F420EAE51F1DB8BE00EC0B88 /* TaskModel.swift */,
 				F420EAB61F1DB76100EC0B88 /* bucketlist_client */,
 				F420EACB1F1DB76100EC0B88 /* bucketlist_clientTests */,
@@ -261,6 +264,7 @@
 			files = (
 				F420EAE61F1DB8BE00EC0B88 /* TaskModel.swift in Sources */,
 				F420EABA1F1DB76100EC0B88 /* BucketListTableViewController.swift in Sources */,
+				F44DAF5D1F1DC28E003825FB /* NewTaskViewController.swift in Sources */,
 				F420EAB81F1DB76100EC0B88 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +532,7 @@
 				F420EADE1F1DB76100EC0B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F420EADF1F1DB76100EC0B88 /* Build configuration list for PBXNativeTarget "bucketlist_clientTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +541,7 @@
 				F420EAE11F1DB76100EC0B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F420EAE21F1DB76100EC0B88 /* Build configuration list for PBXNativeTarget "bucketlist_clientUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +550,7 @@
 				F420EAE41F1DB76100EC0B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
