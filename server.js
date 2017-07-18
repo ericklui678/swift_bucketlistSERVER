@@ -4,6 +4,7 @@ var express = require('express'),
   port = 8000,
   app = express();
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json())
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 mongoose.connect('mongodb://localhost/bucketlist');
@@ -16,20 +17,21 @@ var BucketlistSchema = new mongoose.Schema({
 
 var Bucketlist = mongoose.model('bucketlist', BucketlistSchema);
 
-app.get('/', function(req, res){
+app.get('/tasks', function(req, res){
   Bucketlist.find(function(err, data){
     if(err) {console.log(err);}
-    res.render('index', {tasks: data})
+    console.log(data);
+    res.send(data)
   }).sort({'createdAt': -1})
 })
-app.get('/tasks', function(req, res){
+app.get('/new', function(req, res){
   res.render('new');
 })
 app.post('/tasks', function(req, res){
   Bucketlist.create(req.body, function(err, data){
     if(err) {console.log(err);}
     console.log(req.body);
-    res.redirect('/');
+    res.redirect('/tasks');
   })
 })
 app.listen(port, function() {
