@@ -26,4 +26,16 @@ class TaskModel {
       task.resume()
     }
   }
+  static func updateTask(objective: String, index: String, completionHandler: @escaping(_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+    if let urlToReq = URL(string: "http://localhost:8000/tasks/" + String(index)) {
+      print(urlToReq)
+      var request = URLRequest(url: urlToReq)
+      request.httpMethod = "POST"
+      let bodyData = "objective=\(objective)"
+      request.httpBody = bodyData.data(using: .utf8)
+      let session = URLSession.shared
+      let task = session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
+      task.resume()
+    }
+  }
 }

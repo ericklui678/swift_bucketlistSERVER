@@ -9,7 +9,10 @@
 import UIKit
 
 class NewTaskViewController: UIViewController {
-
+  
+  var text: String?
+  var index = -1
+  
   @IBOutlet weak var taskLabel: UITextField!
   
   @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
@@ -17,6 +20,7 @@ class NewTaskViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+    taskLabel?.text =  text
   }
 
   override func didReceiveMemoryWarning() {

@@ -17,21 +17,27 @@ var BucketlistSchema = new mongoose.Schema({
 
 var Bucketlist = mongoose.model('bucketlist', BucketlistSchema);
 
+// Show all tasks
 app.get('/tasks', function(req, res){
   Bucketlist.find(function(err, data){
     if(err) {console.log(err);}
-    console.log(data);
     res.send(data)
   }).sort({'createdAt': -1})
 })
-app.get('/new', function(req, res){
-  res.render('new');
-})
+// Create
 app.post('/tasks', function(req, res){
   Bucketlist.create(req.body, function(err, data){
     if(err) {console.log(err);}
-    console.log(req.body);
     res.redirect('/tasks');
+  })
+})
+// Update
+app.post('/tasks/:id', function(req, res){
+  Bucketlist.update({_id: req.params.id}, req.body, function(err, data){
+    if(err) {console.log(err);}
+    console.log("ID:", req.params.id);
+    console.log("REQ BODY:", req.body);
+    res.redirect('/tasks')
   })
 })
 app.listen(port, function() {
