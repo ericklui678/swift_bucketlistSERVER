@@ -53,6 +53,11 @@ class BucketListTableViewController: UITableViewController {
       newTaskVC.index = -1
     }
   }
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    deleteTask(tasks[indexPath.row]["_id"] as! String)
+    tasks.remove(at: indexPath.row)
+    tableView.reloadData()
+  }
   func retrieveAllTasks() {
     TaskModel.getAllTasks(completionHandler: {
       data, response, error in
@@ -92,6 +97,18 @@ class BucketListTableViewController: UITableViewController {
         }
         DispatchQueue.main.async {
           self.tableView.reloadData()
+        }
+      } catch {
+        print(error)
+      }
+    })
+  }
+  func deleteTask(_ index: String) {
+    TaskModel.deleteTask(index: index, completionHandler: {
+      data, response, error in
+      do {
+        if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [NSDictionary] {
+          self.tasks = jsonResult
         }
       } catch {
         print(error)

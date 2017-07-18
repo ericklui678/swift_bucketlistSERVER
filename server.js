@@ -40,6 +40,13 @@ app.post('/tasks/:id', function(req, res){
     res.redirect('/tasks')
   })
 })
+// Delete
+app.post('/delete/:id', function(req, res){
+  Bucketlist.remove({_id: req.params.id}, function(err, data){
+    if(err) {console.log(err);}
+    res.redirect('/tasks')
+  })
+})
 app.listen(port, function() {
   console.log('running on', port);
 })
